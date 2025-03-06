@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Form</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <style>
+        /* Body background and font styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Centering the form and giving it a max width */
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        /* Form shadow and border-radius */
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title styling */
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        /* Adjust form field margins */
+        .mb-3 {
+            margin-bottom: 20px;
+        }
+
+        /* Custom styling for the submit button */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 12px;
+        }
+
+        /* Hover effect for the button */
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        /* Input field styling */
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Focus effect for input fields */
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+        }
+
+        /* Form label styling */
+        .form-label {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Create a Blog Post</h1>
+        <form method="POST" enctype="multipart/form-data" class="form-container">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="blogName" class="form-label">Blog Name:</label>
+                <input type="text" class="form-control" id="blogName" name="blogName" placeholder="Enter the blog name" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Enter the blog description" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image:</label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit Blog</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js links -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

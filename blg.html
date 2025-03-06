@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block start %}
+  <h1>This is blog Page</h1>
+  
+  <table class="container">
+    <tr>
+      <th>S. No.</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+    </tr>
+    {% for data in blog_data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{data.blogname}}</td>
+      <td>{{data.description}}</td>
+      <td>
+        <img src="/media/{{data.image}}" style="height: 100px; width: 100px;">
+      </td>
+    </tr>
+
+    {% endfor %}
+    
+  </table> 
+{% endblock %}
